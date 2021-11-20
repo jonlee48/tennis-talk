@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "264269127053",
+    "firebase_url": "https://tennis-talk-default-rtdb.firebaseio.com",
+    "project_id": "tennis-talk",
+    "storage_bucket": "tennis-talk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264269127053:android:3383ac17fd6292cb5bb1c4",
+        "android_client_info": {
+          "package_name": "edu.gwu.tennistalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264269127053-oe1u11inkphtnamkv5cpp7jeqt8ihra6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwzanPcdqEHUtxlSjNXdMFC6xRTIZzVmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264269127053-oe1u11inkphtnamkv5cpp7jeqt8ihra6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
