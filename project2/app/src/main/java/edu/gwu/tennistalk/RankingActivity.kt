@@ -102,37 +102,37 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     fun generateFakePlayers(): List<Player> {
         return listOf(
             Player(
-                title = "Name",
-                source = "Source",
-                content = "Content",
+                title = "N. Djokovic",
+                source = "Rank #1",
+                content = "10,940 Points",
                 iconUrl = "url",
                 link = "link"
             ),
             Player(
-                title = "Name",
-                source = "Source",
-                content = "Content",
+                title = "D. Medvedev",
+                source = "Rank #2",
+                content = "7,640 Points",
                 iconUrl = "url",
                 link = "link"
             ),
             Player(
-                title = "Name",
-                source = "Source",
-                content = "Content",
+                title = "A. Zverev",
+                source = "Rank #3",
+                content = "6,540 Points",
                 iconUrl = "url",
                 link = "link"
             ),
             Player(
-                title = "Name",
-                source = "Source",
-                content = "Content",
+                title = "S. Tsitsipas",
+                source = "Rank #4",
+                content = "6,540 Points",
                 iconUrl = "url",
                 link = "link"
             ),
             Player(
-                title = "Name",
-                source = "Source",
-                content = "Content",
+                title = "A. Rublev",
+                source = "Rank #5",
+                content = "4,950 Points",
                 iconUrl = "url",
                 link = "link"
             ),
