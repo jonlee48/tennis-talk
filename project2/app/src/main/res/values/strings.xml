@@ -5,15 +5,12 @@
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
 
-
     <string name="ranking_title">Player Rankings</string>
     <string name="tour_title">Tour</string>
-    <string name="sources_title">Sources</string>
-    <string name="source_title">Search for %1$s</string>
-
-
     <string name="ranking_results">Leaderboard</string>
-    <string name="top_headlines">Top Headlines</string>
-    <string name="results_title_source">%1$s results for %2$s</string>
-    <string name="results_title">Results for %1$s</string>
+
+    <string name="menu_title">Menu</string>
+    <string name="ranking_button">Tour Rankings</string>
+    <string name="matches_button">Recent Matches</string>
+
 </resources>
