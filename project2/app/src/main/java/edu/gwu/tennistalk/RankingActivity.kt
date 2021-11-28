@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -26,9 +27,12 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
 
     override fun onPlayerClickListener(data: Player) {
-        // goto player activity
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        // open up news about player on tennis.com
+        val name = data.name.replace(" ", "+")
+        val link = "https://www.tennis.com/search?search=&q=$name"
+
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+        startActivity(browserIntent)
     }
 
 

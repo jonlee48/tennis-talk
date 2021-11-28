@@ -24,7 +24,7 @@ class PlayerAdapter(val context: Context, val players: List<Player>, val playerC
 
         // Read & parse the XML file to create a new row at runtime
         // The 'inflate' function returns a reference to the root layout (the "top" view in the hierarchy) in our newly created row
-        val rootLayout: View = layoutInflater.inflate(R.layout.player, parent, false)
+        val rootLayout: View = layoutInflater.inflate(R.layout.player_card, parent, false)
 
         // We can now create a ViewHolder from the root view
         return ViewHolder(rootLayout)
