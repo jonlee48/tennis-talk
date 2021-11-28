@@ -18,48 +18,71 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/card_view_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp">
 
-            <ImageView
-                android:id="@+id/article_icon"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:src="@mipmap/ic_launcher_round"
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Novak Djokovic"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/movement"
+                app:layout_constraintEnd_toStartOf="@+id/points"
+                app:layout_constraintStart_toEndOf="@+id/movement"
+                app:layout_constraintTop_toTopOf="@+id/movement" />
+
+            <TextView
+                android:id="@+id/ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="#100"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/article_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/article_title"
-                app:layout_constraintTop_toBottomOf="@id/article_source"
-                tools:text="Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touchscreen mobile devices such as smartphones and tablets." />
-
-            <TextView
-                android:id="@+id/article_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/article_icon"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="This is a really long and crazy title with clickbait and stuff" />
-
-            <TextView
-                android:id="@+id/article_source"
+            <ImageView
+                android:id="@+id/green_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@id/article_title"
-                app:layout_constraintTop_toBottomOf="@id/article_title"
-                tools:text="\@androidcentral" />
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/ranking"
+                app:layout_constraintTop_toTopOf="@+id/ranking"
+                app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+
+            <ImageView
+                android:id="@+id/red_arrow"
+                android:layout_width="23dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ranking"
+                app:layout_constraintStart_toStartOf="@+id/green_arrow"
+                app:layout_constraintTop_toTopOf="@+id/green_arrow"
+                app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <TextView
+                android:id="@+id/movement"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="+1234"
+                app:layout_constraintBottom_toBottomOf="@+id/ranking"
+                app:layout_constraintStart_toEndOf="@+id/red_arrow"
+                app:layout_constraintTop_toTopOf="@+id/ranking" />
+
+            <TextView
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="10865"
+                app:layout_constraintBottom_toBottomOf="@+id/name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
