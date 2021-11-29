@@ -66,7 +66,7 @@ class PlayerAdapter(val context: Context, val players: List<Player>, val playerC
     // The "rootLayout" passed into the constructor comes from onCreateViewHolder. From the root layout, we can
     // call findViewById to search through the hierarchy to find the Views we care about in our new row.
     class ViewHolder(rootLayout: View) : RecyclerView.ViewHolder(rootLayout) {
-        val name: TextView = rootLayout.findViewById(R.id.name)
+        val name: TextView = rootLayout.findViewById(R.id.home_name)
         val ranking: TextView = rootLayout.findViewById(R.id.ranking)
         val movement: TextView = rootLayout.findViewById(R.id.movement)
         val redArrow: ImageView = rootLayout.findViewById(R.id.red_arrow)

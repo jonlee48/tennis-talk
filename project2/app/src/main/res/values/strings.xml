@@ -13,4 +13,7 @@
     <string name="ranking_button">Tour Rankings</string>
     <string name="matches_button">Recent Matches</string>
 
+    <string name="matches_title">Matches</string>
+    <string name="matches_results">Matches Played on Date</string>
+
 </resources>
