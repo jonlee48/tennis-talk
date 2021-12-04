@@ -1,18 +1,28 @@
 <resources>
     <string name="app_name">Tennis Talk</string>
+
+    <!-- Login Activity -->
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
+    <string name="remember">Remember Credentials</string>
 
-    <string name="ranking_title">Player Rankings</string>
-    <string name="tour_title">Tour</string>
-    <string name="ranking_results">Leaderboard</string>
+    <!-- Create Account -->
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
 
+    <!-- Menu Activity -->
     <string name="menu_title">Menu</string>
     <string name="ranking_button">Tour Rankings</string>
     <string name="matches_button">Recent Matches</string>
 
+    <!-- Ranking Activity -->
+    <string name="ranking_title">Player Rankings</string>
+    <string name="tour_title">Tour</string>
+    <string name="ranking_results">Leaderboard</string>
+
+    <!-- Matches Activity -->
     <string name="matches_title">Matches</string>
     <string name="matches_results">Matches Played on Date</string>
 

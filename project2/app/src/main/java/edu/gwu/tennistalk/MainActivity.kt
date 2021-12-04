@@ -9,10 +9,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.*
 
@@ -25,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var login: Button
     private lateinit var signUp: Button
+    private lateinit var rememberMe: Switch
     private lateinit var progressBar: ProgressBar
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseAnalytics: FirebaseAnalytics
@@ -58,12 +56,14 @@ class MainActivity : AppCompatActivity() {
         password = findViewById(R.id.password)
         login = findViewById(R.id.login)
         signUp = findViewById(R.id.signUp)
+        rememberMe = findViewById(R.id.switch1)
         progressBar = findViewById(R.id.progressBar)
 
         // Kotlin shorthand for login.setEnabled(false).
         // If the getter / setter is unambiguous, Kotlin lets you use the property-style syntax
         login.isEnabled = false
-        signUp.isEnabled = false
+        signUp.isEnabled = true
+        rememberMe.setChecked(true)
 
         // Restore the saved username from SharedPreferences and display it to the user when the screen loads.
         // Default to the empty string if there is no saved username.
@@ -109,47 +109,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         signUp.setOnClickListener {
-            Toast.makeText(this, "Button clicked", Toast.LENGTH_LONG).show()
-            val inputtedUsername: String = username.text.toString()
-            val inputtedPassword: String = password.text.toString()
-            firebaseAuth
-                .createUserWithEmailAndPassword(inputtedUsername, inputtedPassword)
-                .addOnCompleteListener{ task ->
-                    if (task.isSuccessful) {
-                        val currentUser: FirebaseUser = firebaseAuth.currentUser!!
-                        Toast.makeText(this, "Registered successfully: ${currentUser.email}", Toast.LENGTH_LONG).show()
-
-                    } else {
-                        val exception = task.exception
-                        if (exception is FirebaseAuthInvalidCredentialsException) {
-                            Toast.makeText(
-                                this,
-                                "You didn't supply a valid email address!",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                        else if (exception is FirebaseAuthWeakPasswordException) {
-                            Toast.makeText(
-                                this,
-                                "Your password doesn't meet minimum requirements...",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                        else if (exception is FirebaseAuthUserCollisionException) {
-                            Toast.makeText(
-                                this,
-                                "This account already exists!",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            Toast.makeText(
-                                this,
-                                "Registration error: $exception",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-                }
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
 
         // Using the same TextWatcher instance for both EditTexts so the same block of code runs on each character.
@@ -174,7 +135,6 @@ class MainActivity : AppCompatActivity() {
 
             // Kotlin shorthand for login.setEnabled(enableButton)
             login.isEnabled = enableButton
-            signUp.isEnabled = enableButton
         }
 
         override fun afterTextChanged(p0: Editable?) {}
