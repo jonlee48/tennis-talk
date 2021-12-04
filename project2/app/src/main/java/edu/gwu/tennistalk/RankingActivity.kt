@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -22,10 +23,16 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         "WTA",
     )
 
+    private var tourIndex = 1
+
+
     override fun onPlayerClickListener(data: Player) {
-        // goto player activity
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        // open up news about player on tennis.com
+        val name = data.name.replace(" ", "+")
+        val link = "https://www.tennis.com/search?search=&q=$name"
+
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+        startActivity(browserIntent)
     }
 
 
@@ -46,7 +53,7 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         val savedCategory = preferences.getString("CATEGORY","")
 
         if (savedCategory.isNullOrBlank()) {
-            spinner.setSelection(0)
+            spinner.setSelection(1)
         } else {
             spinner.setSelection(savedCategory.toInt())
         }
@@ -60,6 +67,8 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         editor.putString("CATEGORY", p2.toString())
         editor.apply()
 
+        tourIndex = p2
+
         updateResults()
     }
 
@@ -69,12 +78,14 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     fun updateResults() {
         //make API call
         doAsync {
-            //val tennisManager = TennisManager()
+            val tennisManager = TennisManager()
 
             // make call to news API
-            //val apiKey = getString(R.string.news_api_key)
+            val apiKey = getString(R.string.tennis_api_key)
 
-            val players: List<Player> = generateFakePlayers()//tennisManager.retrieveRankings(apiKey, tours[catIndex])
+            val players: List<Player> = tennisManager.retrievePlayers(apiKey, tours[tourIndex]) //generateFakePlayers()
+            //val players: List<Player> = generateFakePlayers()
+
 
             runOnUiThread {
                 if (players.isNotEmpty()) {
@@ -102,40 +113,45 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     fun generateFakePlayers(): List<Player> {
         return listOf(
             Player(
-                title = "N. Djokovic",
-                source = "Rank #1",
-                content = "10,940 Points",
-                iconUrl = "url",
-                link = "link"
+                name = "N. Djokovic",
+                ranking = 1,
+                movement = "",
+                points =10940,
+                country = "Serbia",
+                id = 89304
             ),
             Player(
-                title = "D. Medvedev",
-                source = "Rank #2",
-                content = "7,640 Points",
-                iconUrl = "url",
-                link = "link"
+                name = "D. Medvedev",
+                ranking = 2,
+                movement = "",
+                points = 7640,
+                country = "Russia",
+                id = 86928
             ),
             Player(
-                title = "A. Zverev",
-                source = "Rank #3",
-                content = "6,540 Points",
-                iconUrl = "url",
-                link = "link"
+                name = "A. Zverev",
+                ranking = 3,
+                movement = "",
+                points = 6540,
+                country = "Germany",
+                id = 262500
             ),
             Player(
-                title = "S. Tsitsipas",
-                source = "Rank #4",
-                content = "6,540 Points",
-                iconUrl = "url",
-                link = "link"
+                name = "S. Tsitsipas",
+                ranking = 4,
+                movement = "",
+                points = 6540,
+                country = "Germany",
+                id = 86064
             ),
             Player(
-                title = "A. Rublev",
-                source = "Rank #5",
-                content = "4,950 Points",
-                iconUrl = "url",
-                link = "link"
-            ),
+                name = "A. Rublev",
+                ranking = 5,
+                movement = "",
+                points = 4950,
+                country = "Russia",
+                id = 981036
+            )
         )
     }
 }

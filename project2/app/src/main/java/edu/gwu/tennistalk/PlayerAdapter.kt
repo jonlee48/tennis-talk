@@ -24,7 +24,7 @@ class PlayerAdapter(val context: Context, val players: List<Player>, val playerC
 
         // Read & parse the XML file to create a new row at runtime
         // The 'inflate' function returns a reference to the root layout (the "top" view in the hierarchy) in our newly created row
-        val rootLayout: View = layoutInflater.inflate(R.layout.player, parent, false)
+        val rootLayout: View = layoutInflater.inflate(R.layout.player_card, parent, false)
 
         // We can now create a ViewHolder from the root view
         return ViewHolder(rootLayout)
@@ -34,10 +34,26 @@ class PlayerAdapter(val context: Context, val players: List<Player>, val playerC
     // We're given the row position / index that needs to be rendered.
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val currPlayer = players[position]
-        viewHolder.title.text = currPlayer.title
-        viewHolder.source.text = currPlayer.source
-        viewHolder.content.text = currPlayer.content
+        viewHolder.ranking.text = "#${currPlayer.ranking}"
+        viewHolder.name.text = currPlayer.name
+        viewHolder.points.text = currPlayer.points.toString()
 
+        // set the visibility of arrow indicators to denote player moving up or down rankings
+        if (currPlayer.movement.isBlank()) {
+            viewHolder.movement.text = ""
+            viewHolder.redArrow.visibility = View.INVISIBLE
+            viewHolder.greenArrow.visibility = View.INVISIBLE
+
+        } else if (currPlayer.movement.startsWith("+")) {
+            viewHolder.movement.text = currPlayer.movement
+            viewHolder.redArrow.visibility = View.INVISIBLE
+            viewHolder.greenArrow.visibility = View.VISIBLE
+
+        } else if (currPlayer.movement.startsWith("-")) {
+            viewHolder.movement.text = currPlayer.movement
+            viewHolder.redArrow.visibility = View.VISIBLE
+            viewHolder.greenArrow.visibility = View.INVISIBLE
+        }
 
         viewHolder.itemView.setOnClickListener{
             playerClickListener.onPlayerClickListener(currPlayer)
@@ -50,9 +66,12 @@ class PlayerAdapter(val context: Context, val players: List<Player>, val playerC
     // The "rootLayout" passed into the constructor comes from onCreateViewHolder. From the root layout, we can
     // call findViewById to search through the hierarchy to find the Views we care about in our new row.
     class ViewHolder(rootLayout: View) : RecyclerView.ViewHolder(rootLayout) {
-        val title: TextView = rootLayout.findViewById(R.id.article_title)
-        val source: TextView = rootLayout.findViewById(R.id.article_source)
-        val content: TextView = rootLayout.findViewById(R.id.article_content)
-        val icon: ImageView = rootLayout.findViewById(R.id.article_icon)
+        val name: TextView = rootLayout.findViewById(R.id.home_name)
+        val ranking: TextView = rootLayout.findViewById(R.id.ranking)
+        val movement: TextView = rootLayout.findViewById(R.id.movement)
+        val redArrow: ImageView = rootLayout.findViewById(R.id.red_arrow)
+        val greenArrow: ImageView = rootLayout.findViewById(R.id.green_arrow)
+        val points: TextView = rootLayout.findViewById(R.id.points)
+
     }
 }

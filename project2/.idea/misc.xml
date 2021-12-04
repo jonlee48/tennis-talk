@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/drawable/green_triangle.xml" value="0.14635416666666667" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.14635416666666667" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/drawable/ic_baseline_arrow_drop_up_24.xml" value="0.14635416666666667" />
         <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/activity_matches.xml" value="0.26614583333333336" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/activity_menu.xml" value="0.4" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/activity_player.xml" value="0.4" />
         <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/activity_ranking.xml" value="0.264" />
-        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/player.xml" value="0.25416666666666665" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/match_card.xml" value="0.536" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/player.xml" value="0.8456659619450317" />
+        <entry key="..\:/sync/gw/fall2021/csci4237_handhelds/project-2-byoi-jonathan/project2/app/src/main/res/layout/player_card.xml" value="0.4756242568370987" />
       </map>
     </option>
   </component>

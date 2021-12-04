@@ -1,9 +1,10 @@
 package edu.gwu.tennistalk
 
 data class Player(
-    val title: String,
-    val source: String,
-    val content: String,
-    val iconUrl: String,
-    val link: String
+    val name: String,
+    val ranking: Int,
+    val movement: String,
+    val points: Int,
+    val country: String,
+    val id: Int
 )

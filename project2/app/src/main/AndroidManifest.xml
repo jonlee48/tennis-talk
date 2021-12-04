@@ -19,7 +19,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true" />
+        <activity
             android:name=".RankingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MatchActivity"
             android:exported="true" />
 
     </application>
