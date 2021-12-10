@@ -59,16 +59,44 @@ class MainActivity : AppCompatActivity() {
         rememberMe = findViewById(R.id.switch1)
         progressBar = findViewById(R.id.progressBar)
 
-        // Kotlin shorthand for login.setEnabled(false).
-        // If the getter / setter is unambiguous, Kotlin lets you use the property-style syntax
-        login.isEnabled = false
-        signUp.isEnabled = true
-        rememberMe.setChecked(true)
+        // Restore the saved username and password from SharedPreferences if
+        // rememberMe switch is on
+        val rememberState = preferences.getString("REMEMBER", "")
+        if (rememberState.isNullOrEmpty()) {
+            login.isEnabled = false
+            rememberMe.setChecked(false)
 
-        // Restore the saved username from SharedPreferences and display it to the user when the screen loads.
-        // Default to the empty string if there is no saved username.
-        val savedUsername = preferences.getString("USERNAME", "")
-        username.setText(savedUsername)
+
+        }
+        else {
+            Log.d("MainActivity", "Remembering username and password")
+            // enable login right away
+            login.isEnabled = true
+            rememberMe.setChecked(true)
+
+            // Restore the saved username from SharedPreferences
+            val savedUsername = preferences.getString("USERNAME", "")
+            username.setText(savedUsername)
+
+            // Restore the saved password from SharedPreferences
+            val savedPassword = preferences.getString("PASSWORD", "")
+            password.setText(savedPassword)
+        }
+
+        // Save the state of switch in shared preferences
+        rememberMe.setOnClickListener {
+            val editor = preferences.edit()
+            if (rememberMe.isChecked) {
+                Log.d("MainActivity", "Switch on")
+                editor.putString("REMEMBER", "true")
+                editor.apply()
+            }
+            else {
+                Log.d("MainActivity", "Switch off")
+                editor.putString("REMEMBER", "")
+                editor.apply()
+            }
+        }
 
         // Using a lambda to implement a View.OnClickListener interface. We can do this because
         // an OnClickListener is an interface that only requires *one* function.
@@ -82,8 +110,17 @@ class MainActivity : AppCompatActivity() {
                     firebaseAnalytics.logEvent("login_successful", null)
                     val currentUser: FirebaseUser = firebaseAuth.currentUser!!
                     Toast.makeText(this, "Logged in as: ${currentUser.email}", Toast.LENGTH_LONG).show()
+
+                    // remember credentials or not
                     val editor = preferences.edit()
-                    editor.putString("USERNAME", inputtedUsername)
+                    if (rememberMe.isChecked) {
+                        editor.putString("USERNAME", inputtedUsername)
+                        editor.putString("PASSWORD", inputtedPassword)
+                    }
+                    else {
+                        editor.putString("USERNAME", "")
+                        editor.putString("PASSWORD", "")
+                    }
                     editor.apply()
 
                     progressBar.visibility = View.VISIBLE
@@ -105,7 +142,6 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-
         }
 
         signUp.setOnClickListener {
