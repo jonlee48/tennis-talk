@@ -35,4 +35,4 @@ Tennis Talk includes language support for both English and Japanese.
 ![Ranking Screen](ranking.png)
 ### Matches Screen
 ![Matches Screen](matches.png)
-![Matches Screen](date_selection.png)
+![Matches Screen](date_selection1.png)
