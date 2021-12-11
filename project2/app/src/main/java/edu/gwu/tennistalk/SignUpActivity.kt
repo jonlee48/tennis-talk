@@ -48,9 +48,6 @@ class SignUpActivity : AppCompatActivity() {
         // Second parameter = the actual thing you want to log
         Log.d("MainActivity", "onCreate called!")
 
-        val preferences: SharedPreferences = getSharedPreferences("tennis-talk", Context.MODE_PRIVATE)
-
-
         // The IDs we are using here should match what was set in the "id" field for our views
         // in our XML layout (which was specified by setContentView).
         // Android will "search" the UI for the elements with the matching IDs to bind to our variables.
@@ -63,11 +60,6 @@ class SignUpActivity : AppCompatActivity() {
         // Kotlin shorthand for login.setEnabled(false).
         // If the getter / setter is unambiguous, Kotlin lets you use the property-style syntax
         signUp.isEnabled = false
-
-        // Restore the saved username from SharedPreferences and display it to the user when the screen loads.
-        // Default to the empty string if there is no saved username.
-        val savedUsername = preferences.getString("USERNAME", "")
-        username.setText(savedUsername)
 
 
         signUp.setOnClickListener {
