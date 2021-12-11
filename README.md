@@ -1,4 +1,4 @@
-# CSCI 4237 - Tennis Data
+# CSCI 4237 - Tennis Talk
 
 For my final project in CSCI 4237 Handheld Devices, I built an app called Tennis Talk. This android app keeps tennis fans up to date with the latest player rankings and match scores. Users can view rankings and click on a player to get more details. They can also view all matches played on a given day. 
 
