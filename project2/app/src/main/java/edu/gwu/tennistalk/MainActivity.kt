@@ -59,14 +59,15 @@ class MainActivity : AppCompatActivity() {
         rememberMe = findViewById(R.id.switch1)
         progressBar = findViewById(R.id.progressBar)
 
+        // Hide progress bar
+        progressBar.visibility = View.INVISIBLE
+
         // Restore the saved username and password from SharedPreferences if
         // rememberMe switch is on
         val rememberState = preferences.getString("REMEMBER", "")
         if (rememberState.isNullOrEmpty()) {
             login.isEnabled = false
             rememberMe.setChecked(false)
-
-
         }
         else {
             Log.d("MainActivity", "Remembering username and password")
@@ -101,7 +102,8 @@ class MainActivity : AppCompatActivity() {
         // Using a lambda to implement a View.OnClickListener interface. We can do this because
         // an OnClickListener is an interface that only requires *one* function.
         login.setOnClickListener {
-            Toast.makeText(this, "Logging in", Toast.LENGTH_LONG).show()
+            progressBar.visibility = View.VISIBLE
+
             // Save the username to SharedPreferences
             val inputtedUsername = username.text.toString()
             val inputtedPassword = password.text.toString()
@@ -123,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     editor.apply()
 
-                    progressBar.visibility = View.VISIBLE
+                    progressBar.visibility = View.INVISIBLE
 
                     // An Intent is used to start a new Activity.
                     // 1st param == a "Context" which is a reference point into the Android system. All Activities are Contexts by inheritance.
@@ -132,6 +134,7 @@ class MainActivity : AppCompatActivity() {
 
                     startActivity(intent)
                 } else {
+                    progressBar.visibility = View.INVISIBLE
                     firebaseAnalytics.logEvent("login_failed", null)
 
                     val exception = task.exception

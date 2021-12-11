@@ -24,6 +24,8 @@
 
     <!-- Matches Activity -->
     <string name="matches_title">Matches</string>
-    <string name="matches_results">Matches Played on Date</string>
+    <string name="matches_results">Matches Played on %1$s</string>
+    <string name="select_date">Select Date</string>
+    <string name="no_results">No matches found.</string>
 
 </resources>

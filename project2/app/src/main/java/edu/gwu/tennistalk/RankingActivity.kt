@@ -17,6 +17,7 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
     private lateinit var spinner: Spinner
     private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
 
     private val tours  = arrayOf(
         "ATP",
@@ -41,6 +42,7 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         setContentView(R.layout.activity_ranking)
         setTitle(R.string.ranking_title)
 
+        progressBar = findViewById(R.id.progressBar3)
 
         // Setup spinner
         spinner = findViewById(R.id.spinner)
@@ -76,6 +78,8 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     }
 
     fun updateResults() {
+        progressBar.visibility = View.VISIBLE
+
         //make API call
         doAsync {
             val tennisManager = TennisManager()
@@ -88,6 +92,8 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
 
             runOnUiThread {
+                progressBar.visibility = View.INVISIBLE
+
                 if (players.isNotEmpty()) {
                     recyclerView = findViewById(R.id.ranking_recycler_viewer)
 
@@ -108,50 +114,5 @@ class RankingActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
                 }
             }
         }
-    }
-
-    fun generateFakePlayers(): List<Player> {
-        return listOf(
-            Player(
-                name = "N. Djokovic",
-                ranking = 1,
-                movement = "",
-                points =10940,
-                country = "Serbia",
-                id = 89304
-            ),
-            Player(
-                name = "D. Medvedev",
-                ranking = 2,
-                movement = "",
-                points = 7640,
-                country = "Russia",
-                id = 86928
-            ),
-            Player(
-                name = "A. Zverev",
-                ranking = 3,
-                movement = "",
-                points = 6540,
-                country = "Germany",
-                id = 262500
-            ),
-            Player(
-                name = "S. Tsitsipas",
-                ranking = 4,
-                movement = "",
-                points = 6540,
-                country = "Germany",
-                id = 86064
-            ),
-            Player(
-                name = "A. Rublev",
-                ranking = 5,
-                movement = "",
-                points = 4950,
-                country = "Russia",
-                id = 981036
-            )
-        )
     }
 }

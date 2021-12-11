@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">テニストーク</string>
+
+    <!-- Login Activity -->
+    <string name="login">ログイン</string>
+    <string name="username">ユーザー名</string>
+    <string name="password">パスワード</string>
+    <string name="sign_up">サインアップ</string>
+    <string name="remember">資格情報を記憶する</string>
+
+    <!-- Create Account -->
+    <string name="confirm_password">パスワードの確認</string>
+    <string name="create_account">アカウントの作成</string>
+
+    <!-- Menu Activity -->
+    <string name="menu_title">メニュー</string>
+    <string name="ranking_button">ツアーランキング</string>
+    <string name="matches_button">最近の試合</string>
+
+    <!-- Ranking Activity -->
+    <string name="ranking_title">プレイヤーランキング</string>
+    <string name="tour_title">ツアー</string>
+    <string name="ranking_results">リーダーボード</string>
+
+    <!-- Matches Activity -->
+    <string name="matches_title">一致</string>
+    <string name="matches_results">対戦日 %1$s</string>
+    <string name="select_date">日付の選択</string>
+    <string name="no_results">一致するものが見つかりません。</string>
+</resources>
