@@ -20,7 +20,7 @@ Login Authentication is provided by Firebase Authentication. Users register and 
 Tennis Talk includes language support for both English and Japanese.
 
 ## Special Instructions/Limitations
-- Matches Activity: Some dates don't have any matches played, thus the Matches Activity might return "No matches found." Some dates I have tested that matches are played, for example, are August 3rd, 2021 and November 11th, 2021.
+- Matches Activity: Some dates don't have any matches played, thus the Matches Activity might return "No matches found." Some dates I have tested that matches are played, for example, are August 3rd, 2021 and November 10th, 2021.
 - Ranking Activity: The Tennis Live Data API has a known issue where a player low ranked player might have a higher ranking than expected. For example, Jurgen Melzer should not be ranked #35.
 ![ranking issue](ranking_issue.png)
 
