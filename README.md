@@ -32,7 +32,7 @@ Tennis Talk includes language support for both English and Japanese.
 ### Menu Screen
 ![Menu Screen](menu.png)
 ### Ranking Screen
-![Ranking Screen](ranking.png)
+![Ranking Screen](rankings.png)
 ### Matches Screen
 ![Matches Screen](matches.png)
 ![Matches Screen](date_selection.png)
