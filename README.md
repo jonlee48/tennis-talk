@@ -1,4 +1,4 @@
-# CSCI 4237 - Tennis Data
+# CSCI 4237 - Tennis Talk
 
 For my final project in CSCI 4237 Handheld Devices, I built an app called Tennis Talk. This android app keeps tennis fans up to date with the latest player rankings and match scores. Users can view rankings and click on a player to get more details. They can also view all matches played on a given day. 
 
@@ -20,7 +20,7 @@ Login Authentication is provided by Firebase Authentication. Users register and 
 Tennis Talk includes language support for both English and Japanese.
 
 ## Special Instructions/Limitations
-- Matches Activity: Some dates don't have any matches played, thus the Matches Activity might return "No matches found." Some dates I have tested that matches are played, for example, are August 3rd, 2021 and November 11th, 2021.
+- Matches Activity: Some dates don't have any matches played, thus the Matches Activity might return "No matches found." Some dates I have tested that matches are played, for example, are August 3rd, 2021 and November 10th, 2021.
 - Ranking Activity: The Tennis Live Data API has a known issue where a player low ranked player might have a higher ranking than expected. For example, Jurgen Melzer should not be ranked #35.
 ![ranking issue](ranking_issue.png)
 
@@ -36,3 +36,6 @@ Tennis Talk includes language support for both English and Japanese.
 ### Matches Screen
 ![Matches Screen](matches.png)
 ![Matches Screen](date_selection.png)
+### Firebase Auth
+![Firebase Auth](firebase.png)
+
